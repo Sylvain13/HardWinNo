@@ -23,8 +23,8 @@
 #include <Wire.h>
 
 
-char ssid[] = "topkek";                  // your network SSID (name)
-char pass[] = "123soleil3";               // your network password
+char ssid[] = "wifiblynk";                  // your network SSID (name)
+char pass[] = "wifiblynk";               // your network password
 int keyIndex = 0;                         // your network key Index number (needed only for WEP)
 
 //Servo Monservo;
