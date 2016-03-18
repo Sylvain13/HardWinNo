@@ -2,7 +2,7 @@
   WiFi Web Server
 
  A simple web server that shows the value of the analog input pins.
- using a WiFi shield.
+ using a WiFi shield
 
  This example is written for a network using WPA encryption. For
  WEP or WPA, change the Wifi.begin() call accordingly.
