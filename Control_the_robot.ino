@@ -84,8 +84,8 @@ BLYNK_WRITE(V5)
 ////////////////////STOP
 BLYNK_WRITE(V8)
 {
-  Right.write(93);
-  Left.write(90); 
+  Right.detach();
+  Left.detach(); 
 }
 
 void loop()
