@@ -1,5 +1,7 @@
 #include <Servo.h>
 
+int analogPin = 3; 
+int val = 0;    
 
 Servo RoueDroit;
 Servo RoueGauche;
@@ -12,31 +14,15 @@ void setup() {
 
 void loop{
 
-	Avancer();
-	i++;
-	delay(1000);
-if( i == 30000){
-		Stop(){
-	}
+	 val = analogRead(analogPin);
+	 distance = map(val,0,1023,10,80);
+	 if(distance < 15){
+
+    //todo DoTheThing 
+  	} else {
+
+  	//todo DoTheThing
+  	}
 }
 
-	
-}
 
-
-void Avancer(){
-	
-
-  RoueDroit.write(180);
-  RoueGauche.write(-180);
-
-	
-}
-
-void Stop(){
-
-
-  RoueDroit.write(93);
-  RoueGauche.write(90);
-	
-}
