@@ -39,55 +39,31 @@ void setup()
   Blynk.begin(auth, ssid, pass);
 }
 
-//ON LED
+////////////////////////////////LED////////////////////////////
+
+////////////////////////ON LED
 BLYNK_WRITE(V2)
 {
    Serial.println("allume");
   digitalWrite(PIN_LED_13, LOW);
 }
 
-//OFF LED
+////////////////////////OFF LED
 BLYNK_WRITE(V3)
 {
   Serial.println("eteind");
   digitalWrite(PIN_LED_13, HIGH);
 }
-/*
-void Avancer(){
 
-    Right.write(180);
-    Left.write(0);
-}
-
-void Reculer(){
-
-    Right.write(0);
-    Left.write(180);
-}
-
-void Droite(){
-
-    Right.write(0);
-    Left.write(0); 
-
-}
-
-void Gauche(){
-
-    Right.write(180);
-    Left.write(180);
-
-}
-*/
-
+////////////////////////Arret Urgence
 BLYNK_WRITE(V8)
 {
-  Serial.println("arret urgence");
-  Right.write(93);
-  Left.write(90); 
+  
+  Right.detach();
+  Left.detach(); 
 }
 
-
+////////////////////////JoystickController
 BLYNK_WRITE(V9){
     
     int x = param[0].asInt();
