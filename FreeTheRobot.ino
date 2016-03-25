@@ -46,12 +46,13 @@ void CheckDistance(){
 	 	} if( v % 5) {
 
 	 		Droite();
-	 		delay(1000);
+	 		delay(700);
 
 	 	}else {
 
 	 		Gauche();
-	 	}	
+	 	}
+	 	delay(300);	
 	}
 }
 
