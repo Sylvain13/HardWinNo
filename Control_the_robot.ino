@@ -40,45 +40,48 @@ void setup()
   Blynk.begin(auth, ssid, pass);
 }
 
-//OFF LED
-BLYNK_WRITE(V3)
-{
-  digitalWrite(PIN_LED_13, HIGH);
-}
-
+////////////////////////LED/////////////
 //ON LED
 BLYNK_WRITE(V2)
 {
   digitalWrite(PIN_LED_13, LOW);
 }
 
-//UP
+//OFF LED
+BLYNK_WRITE(V3)
+{
+  digitalWrite(PIN_LED_13, HIGH);
+}
+////////////////////////LED/////////////
+
+////////////////////////ServoMoteur/////////////
+////////////////////UP
 BLYNK_WRITE(V4)
 {
 
   Right.write(180);
   Left.write(0);
 }
-//RIGHT
+////////////////////RIGHT
 BLYNK_WRITE(V7)
 {
   Right.write(180);
   Left.write(180);
 
 }
-//DOWN
+////////////////////DOWN
 BLYNK_WRITE(V6)
 {
   Right.write(0);
   Left.write(180);
 }
-//LEFT
+////////////////////LEFT
 BLYNK_WRITE(V5)
 {
   Right.write(0);
   Left.write(0); 
 }
-//STOP
+////////////////////STOP
 BLYNK_WRITE(V8)
 {
   Right.write(93);
