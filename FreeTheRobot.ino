@@ -19,7 +19,7 @@ void Avancer(){
 	RoueGauche.write(0);
 	RoueDroit.write(180);
 }
-
+!
 
 void Droite()
 {
@@ -37,7 +37,7 @@ void Gauche();
 void CheckDistance(){
 	while (analogRead(analogPin) < 200){
 
-		int v = random(0,20);
+		int v = random(0,50000);
 
 	 	if( v  % 2){
 
@@ -66,9 +66,19 @@ void loop{
 	 	CHekDistance();
 
   	} else {
+  		int v = random(0,50000)
+  		if( v  % 2 ){
 
-  		Avancer();
+  			Avancer();
+	
+  		}else if( v % 3){
 
+  			Droite();
+  		}else if(v % 5){
+
+  			Gauche();
+  		}
+  		
   	}
 }
 
