@@ -39,57 +39,86 @@ void setup()
   Blynk.begin(auth, ssid, pass);
 }
 
+//ON LED
+BLYNK_WRITE(V2)
+{
+   Serial.println("allume");
+  digitalWrite(PIN_LED_13, LOW);
+}
+
+//OFF LED
+BLYNK_WRITE(V3)
+{
+  Serial.println("eteind");
+  digitalWrite(PIN_LED_13, HIGH);
+}
+/*
 void Avancer(){
 
-	Right.write(180);
-	Left.write(0);
+    Right.write(180);
+    Left.write(0);
 }
 
 void Reculer(){
 
-	Right.write(0);
-  	Left.write(180);
+    Right.write(0);
+    Left.write(180);
 }
 
 void Droite(){
 
-	Right.write(0);
-  	Left.write(0); 
+    Right.write(0);
+    Left.write(0); 
 
 }
 
 void Gauche(){
 
-  	Right.write(180);
- 	Left.write(180);
+    Right.write(180);
+    Left.write(180);
 
 }
+*/
 
 BLYNK_WRITE(V8)
 {
+  Serial.println("arret urgence");
   Right.write(93);
   Left.write(90); 
 }
 
 
 BLYNK_WRITE(V9){
-		x = param[0].asInt();
-		y = param[1].asInt();	
-		if (  65 < x && x < 195 && 127 < y){
-			Avancer();
-		} else if( 65 < x && x < 195 && y < 127 ){
-			Reculer();
-		} else if( 65 < y && y < 195 && x < 127 ){
-			Gauche();
-		} else if( 65 < x && x < 195 && 127 < y ){
-			Droite();
-		}
+    
+    int x = param[0].asInt();
+    int  y = param[1].asInt();
+  
+       
+      if (  65 < x && x < 195 && 127 < y){
+        Right.write(180);
+        Left.write(0);
+      } else if( 65 < x && x < 195 && y < 127 ){
+        Right.write(0);
+        Left.write(180);
+      } else if( 65 < y && y < 195 && x < 127 ){
+        Right.write(180);
+        Left.write(180);
+      } else if( 65 < x && x < 195 && 127 < y ){
+        Right.write(0);
+        Left.write(0); 
+      }
+    
 }
 
 void loop()
 {
+  
   Blynk.run();
+  Serial.println(V8);
 
 }
+
+
+
 
 
