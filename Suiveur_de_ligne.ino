@@ -16,43 +16,46 @@ Servo Left;
 
 char auth[] = "81ecfffa0d1f463994e82155129f64b1";
 
-bool TurnLeft = true;
-
 // Your WiFi credentials
 char ssid[] = "topkek";
 char pass[] = "123soleil3";        // Set to "" for open networks
 
-int CAPTEUR = 0; 
+int CAPTEUR_pin = 0; 
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   pinMode(PIN_LED_13, OUTPUT);
   Blynk.begin(auth, ssid, pass);
+  
   Right.attach(6);
   Left.attach(5);
+  
   Right.write(93);
   Left.write(90);
 }
 
-/////// Bouton d'arrêt d'urgence ///////////
+///////!\ Bouton d'arrêt d'urgence /!\//////////
 BLYNK_WRITE(V8)
 {
   Right.detach();
   Left.detach();
 }
 
-void loop() {
-
+void loop() 
+{
   Blynk.run();
-  int val = analogRead(CAPTEUR);
+  int val = analogRead(CAPTEUR_pin);
  
 // ligne blanche détecté
-  if(val < 250) { 
-        Right.write(180);
-        Left.write(90); 
+  if(val < 250) 
+  { //Tourne a gauche
+      Right.write(180);
+      Left.write(90); 
   }
 // en dehors de la ligne blanche
-  else {
+  else 
+  { //Tourne a droite
       Right.write(93);
       Left.write(0);   
   }
